@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Construction Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #dd2e2e;
+        }
+        
+        /* Border Images Container */
+        .border-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Top Border */
+        .border-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        /* Bottom Border */
+        .border-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            object-fit: cover;
+            filter: brightness(0.7);
+        }
+
+        /* Left Border */
+        .border-left {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100vh;
+            height: 70px;
+            background-image: url('6765557_orig_1_2.jpg');
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            filter: brightness(0.7);
+            transform: rotate(90deg) translateY(-50%);
+            transform-origin: left center;
+        }
+
+        /* Right Border */
+        .border-right {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100vh;
+            height: 70px;
+            background-image: url('6765557_orig_1_2.jpg');
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            filter: brightness(0.7);
+            transform: rotate(-90deg) translateY(-50%);
+            transform-origin: right center;
+        }
+
+        .content {
+            color: #229dce; /* Bright green color */
+            text-align: center;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            color: #ffffff;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+            padding: 150px;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="border-container">
+        <img src="6765557_orig_1_2.jpg" alt="Top Border" class="border-top">
+        <img src="6765557_orig_1_2.jpg" alt="Bottom Border" class="border-bottom">
+        <div class="border-left"></div>
+        <div class="border-right"></div>
+    </div>
+    <div class="content">
+        <h1>Manulea Construction LTD</h1>
+    </div>
+</body>
+</html>
