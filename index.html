@@ -9,7 +9,8 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            background-color: #dd2e2e;
+            background-color: #235f86;
+            font-family: 'Roboto Slab', serif;
         }
         
         /* Border Images Container */
@@ -27,11 +28,15 @@
         .border-top {
             position: fixed;
             top: 0;
-            left: 0;
+            left: 63px;  /* Changed from 0 to 30px */
             width: 100%;
-            height: 70px;
+            height: 63px;
             object-fit: cover;
             filter: brightness(0.7);
+            z-index: 1;
+            background-image: url('tAPA BORDER 3.png');  /* Removed duplicate */
+            transform-origin: top left;
+            background-size: auto 100%;
         }
 
         /* Bottom Border */
@@ -40,39 +45,44 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 70px;
+            height: 63px;
             object-fit: cover;
             filter: brightness(0.7);
+            background-image: url('tAPA BORDER 3.png');  /* Removed duplicate */
+            transform-origin: top left;
+            background-size: auto 100%;
         }
 
         /* Left Border */
         .border-left {
             position: fixed;
-            left: 0;
-            top: 0;
+            left: 63px;           /* Changed from 30px */
+            top: 0;            /* Changed from -35px */
             width: 100vh;
-            height: 70px;
-            background-image: url('6765557_orig_1_2.jpg');
+            height: 63px;
+            z-index: 2;
+            background-image: url('tAPA BORDER 2.png');  /* Removed duplicate */
             background-repeat: repeat-x;
             background-size: auto 100%;
             filter: brightness(0.7);
-            transform: rotate(90deg) translateY(-50%);
-            transform-origin: left center;
+            transform: rotate(90deg);
+            transform-origin: top left;
         }
 
         /* Right Border */
         .border-right {
             position: fixed;
             right: 0;
-            top: 0;
+            bottom: 0;
             width: 100vh;
-            height: 70px;
-            background-image: url('6765557_orig_1_2.jpg');
+            height: 63px;
+            z-index: 3;
+            background-image: url('tAPA BORDER 2.png');
             background-repeat: repeat-x;
             background-size: auto 100%;
             filter: brightness(0.7);
-            transform: rotate(-90deg) translateY(-50%);
-            transform-origin: right center;
+            transform: rotate(90deg);      /* Changed from 90deg to -90deg */
+            transform-origin: top right;    /* This is correct */
         }
 
         .content {
@@ -84,10 +94,11 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
-            color: #ffffff;
             text-shadow: 0 2px 8px rgba(0,0,0,0.7);
             padding: 150px;
-            z-index: 2;
+
+            text-shadow: none; /* Remove default shadow */
+            color: #ffd000; /* Keep green color */
         }
 
         h1 {
@@ -95,13 +106,17 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            font-style: italic;
+            font-weight: 700;
+            text-shadow: 4px 4px 8px rgba(255, 255, 0, 0.6); /* Yellow shadow */
+            -webkit-text-stroke: none; /* Remove dark outline */
         }
     </style>
 </head>
 <body>
     <div class="border-container">
-        <img src="6765557_orig_1_2.jpg" alt="Top Border" class="border-top">
-        <img src="6765557_orig_1_2.jpg" alt="Bottom Border" class="border-bottom">
+        <div class="border-top"></div>
+        <div class="border-bottom"></div>
         <div class="border-left"></div>
         <div class="border-right"></div>
     </div>
