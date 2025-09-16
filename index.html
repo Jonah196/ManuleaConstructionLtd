@@ -9,8 +9,8 @@
             height: 100%;
             margin: 0;
             padding: 0;
-            background-color: #235f86;
-            font-family: 'Roboto Slab', serif;
+            background-color: #031933;
+            font-family: 'Arial';
         }
         
         /* Border Images Container */
@@ -28,13 +28,13 @@
         .border-top {
             position: fixed;
             top: 0;
-            left: 63px;  /* Changed from 0 to 30px */
+            left: 0;  /* Changed from 0 to 30px */
             width: 100%;
             height: 63px;
             object-fit: cover;
             filter: brightness(0.7);
             z-index: 1;
-            background-image: url('tAPA BORDER 3.png');  /* Removed duplicate */
+            background-image: url('tAPA BORDER 2.png');  /* Removed duplicate */
             transform-origin: top left;
             background-size: auto 100%;
         }
@@ -48,9 +48,10 @@
             height: 63px;
             object-fit: cover;
             filter: brightness(0.7);
-            background-image: url('tAPA BORDER 3.png');  /* Removed duplicate */
+            background-image: url('tAPA BORDER 2.png');  /* Removed duplicate */
             transform-origin: top left;
             background-size: auto 100%;
+            z-index: 5;
         }
 
         /* Left Border */
@@ -72,21 +73,21 @@
         /* Right Border */
         .border-right {
             position: fixed;
-            right: 0;
-            bottom: 0;
+            right: 63px;
+            top: 0;
             width: 100vh;
             height: 63px;
-            z-index: 3;
+            z-index: 2;
             background-image: url('tAPA BORDER 2.png');
             background-repeat: repeat-x;
             background-size: auto 100%;
             filter: brightness(0.7);
-            transform: rotate(90deg);      /* Changed from 90deg to -90deg */
+            transform: rotate(-90deg);      /* Changed from 90deg to -90deg */
             transform-origin: top right;    /* This is correct */
         }
 
         .content {
-            color: #229dce; /* Bright green color */
+            color: #07ff07; /* Bright green color */
             text-align: center;
             position: relative;
             min-height: 80vh;
@@ -96,9 +97,8 @@
             align-items: center;
             text-shadow: 0 2px 8px rgba(0,0,0,0.7);
             padding: 150px;
-
             text-shadow: none; /* Remove default shadow */
-            color: #ffd000; /* Keep green color */
+            color: #e6e6e6; /* Keep green color */
         }
 
         h1 {
@@ -106,9 +106,10 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-style: italic;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-weight: 700;
-            text-shadow: 4px 4px 8px rgba(255, 255, 0, 0.6); /* Yellow shadow */
+            font-size: clamp(2rem, 5vw, 3.5rem);  /* Responsive font size */
+            text-shadow: 4px 4px 8px rgba(27, 190, 35, 0.6); /* Yellow shadow */
             -webkit-text-stroke: none; /* Remove dark outline */
         }
     </style>
@@ -119,6 +120,7 @@
         <div class="border-bottom"></div>
         <div class="border-left"></div>
         <div class="border-right"></div>
+
     </div>
     <div class="content">
         <h1>Manulea Construction LTD</h1>
