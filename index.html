@@ -10,10 +10,19 @@
             padding: 0;
             background-color: #031933;
             font-family: 'Arial';
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
         }
-        
-        /* Border Images Container */
+
+        #starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #031933;
+        }
+
         .border-container {
             position: fixed;
             top: 0;
@@ -24,7 +33,6 @@
             z-index: 1;
         }
 
-        /* Top Border */
         .border-top {
             position: relative;
             top: 0;
@@ -37,7 +45,6 @@
             background-size: auto 100%;
         }
 
-        /* Bottom Border */
         .border-bottom {
             position: fixed;
             bottom: 0;
@@ -48,10 +55,8 @@
             background-image: url('tAPA BORDER 2.png');
             background-repeat: repeat-x;
             background-size: auto 100%;
-            
         }
 
-        /* Left Border */
         .border-left {
             position: absolute;
             left: 63px;
@@ -80,9 +85,8 @@
             background-color: cyan;
         }
 
-
         .content {
-            color: #07ff07;
+            color: #e6e6e6;
             text-align: center;
             position: relative;
             min-height: 80vh;
@@ -91,8 +95,6 @@
             justify-content: center;
             align-items: center;
             padding: 0px;
-            text-shadow: none;
-            color: #e6e6e6;
             max-width: 100%;
             margin: 0 auto;
         }
@@ -105,73 +107,59 @@
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-weight: 700;
             text-shadow: 4px 4px 8px rgba(27, 190, 35, 0.6);
-            -webkit-text-stroke: none;
             line-height: 1.05;
             white-space: normal;
             overflow-wrap: break-word;
             word-break: break-word;
             hyphens: auto;
         }
-
-        #starfield {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0; /* Behind everything */
-            background-color: #031933; /* Match your page background */
-        }
-
     </style>
-
 </head>
-
-<script>
-    const canvas = document.getElementById('starfield');
-    const ctx = canvas.getContext('2d');
-
-    function resizeCanvas() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    const stars = [];
-    const numStars = 150;
-
-    for (let i = 0; i < numStars; i++) {
-        stars.push({
-            x: Math.random() * canvas.width,
-            y: Math.random() * canvas.height,
-            radius: Math.random() * 1.5 + 0.5,
-            alpha: Math.random(),
-            speed: Math.random() * 0.02 + 0.01
-        });
-    }
-
-    function drawStars() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let star of stars) {
-            star.alpha += star.speed;
-            if (star.alpha > 1 || star.alpha < 0) star.speed *= -1;
-
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-            ctx.fill();
-        }
-        requestAnimationFrame(drawStars);
-    }
-
-    drawStars();
-</script>
-
 <body>
-    
+
     <canvas id="starfield"></canvas>
+
+    <script>
+        const canvas = document.getElementById('starfield');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        const stars = [];
+        const numStars = 150;
+
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                radius: Math.random() * 1.5 + 0.5,
+                alpha: Math.random(),
+                speed: Math.random() * 0.02 + 0.01
+            });
+        }
+
+        function drawStars() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let star of stars) {
+                star.alpha += star.speed;
+                if (star.alpha > 1 || star.alpha < 0) star.speed *= -1;
+
+                ctx.beginPath();
+                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+                ctx.fill();
+            }
+            requestAnimationFrame(drawStars);
+        }
+
+        drawStars();
+    </script>
 
     <div class="border-container">
         <div class="border-top"></div>
@@ -181,10 +169,8 @@
     </div>
 
     <div class="content">
-        <h1>Manulea 
-            <br>Construction 
-            <br>LTD</h1>
+        <h1>Manulea <br>Construction <br>LTD</h1>
     </div>
-    
+
 </body>
 </html>
