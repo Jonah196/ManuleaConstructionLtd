@@ -148,3 +148,23 @@ nav {
         height: 300px;
     }
 }
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 20px auto;
+    color: #e6e6e6;
+}
+
+a {
+    color: #07ff07;
+    text-decoration: none;
+}
+
+img {
+    max-width: 20%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(7, 255, 7, 0.3);
+}
