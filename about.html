@@ -6,14 +6,12 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <canvas id="starfield"></canvas>
-
     <nav>
         <a href="Homepage.html">Home</a>
         <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
         <!-- <a href="contact_us.html">Contact Us</a> -->
-        <a href="links"></a>
     </nav>
 
     <div class="content">
@@ -21,73 +19,6 @@
         <p>
             Manulea Construction is a family-owned business established by Laiva’a Manulea after 20 years’ experience in the construction industry.  Our goal is to build our reputation for reliability and exceptional workmanship while offering competitive pricing.
         </p>
-
-        <h1>Services</h1>
-        <p> 
-            We specialize in new builds, renovations (bathrooms, kitchens etc), fencing, concrete work, driveways and have extensive experience on large sites.
-        </p>
-
-        <h1>Why Choose Us?</h1>
-        <h2>THE PROCESS</h2>
-        <p>We will meet with you to discuss your needs and develop a plan to fulfil your aspirations. <br>We guarantee on-time, high quality work that meets your satisfaction. <br>We will complete a final inspection with you, finalize all paperwork and guarantee the quality of our work.
-        </p>
-        
-
-        <br>
-        <br>
-        
-        <footer>
-            <div class="footer-content">
-                <p>&copy; 2025 Manulea Construction Ltd. All rights reserved.</p>
-                <p><a href="mailto:manuleacon@gmail.com">📧 manuleacon@gmail.com</a></p>
-                <p>📍 104 Glen Road, The Glen, Dunedin 9011</p>
-                <p class="whakatauki">"Mā te huruhuru ka rere te manu" — Adorn the bird with feathers so it may fly.</p>
-            </div>
-        </footer>
-
     </div>
-
-    <script>
-        const canvas = document.getElementById('starfield');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const stars = [];
-        const numStars = 150;
-
-        for (let i = 0; i < numStars; i++) {
-            stars.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 1.5 + 0.5,
-                alpha: Math.random(),
-                speed: Math.random() * 0.02 + 0.01
-            });
-        }
-
-        function drawStars() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let star of stars) {
-                star.alpha += star.speed;
-                if (star.alpha > 1 || star.alpha < 0) star.speed *= -1;
-
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-                ctx.fill();
-            }
-            requestAnimationFrame(drawStars);
-        }
-
-        drawStars();
-    </script>
-
 </body>
 </html>

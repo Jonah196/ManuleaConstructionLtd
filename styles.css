@@ -3,19 +3,9 @@ body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #031933;
+    background-color: #C10000;
     font-family: 'Arial', sans-serif;
     overflow-x: hidden;
-}
-
-#starfield {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-    background-color: #031933;
 }
 
 nav {

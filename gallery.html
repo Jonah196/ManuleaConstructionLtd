@@ -6,105 +6,25 @@
     <link rel="stylesheet" href="styles-gallery.css">
 </head>
 <body>
-
-    <canvas id="starfield"></canvas>
-
     <nav>
         <a href="Homepage.html">Home</a>
         <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
         <a href="gallery.html">Gallery</a>
         <!-- <a href="contact_us.html">Contact Us</a> -->
-        <a href="links"></a>
     </nav>
 
     <div class="content">
         <h1>Gallery</h1>
+        <p>Here are some of our recent projects:</p>
         <div class="gallery-grid">
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.31.06_0ae92afd.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.31.23_a5bd7400.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.31.48_76f88a7b.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.32.08_09489c2b.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.32.20_a8e3ee45.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.33.00_2e19d7bc.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.33.25_ebbfd010.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.34.06_ce01ba01.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.38.13_4348dc73.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.38.40_acb511b6.jpg" alt="Project 1"></div>
-
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.39.05_d45253dd.jpg" alt="Project 1"></div>
-
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.39.41_4e42d77e.jpg" alt="Project 1"></div>
-
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.40.38_b0e30914.jpg" alt="Project 1"></div>
-
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.41.05_b09831fc.jpg" alt="Project 1"></div>
-
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.41.23_e555d13c.jpg" alt="Project 1"></div>
-
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.41.42_b165a345.jpg" alt="Project 1"></div>
-
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.41.56_155af1bd.jpg" alt="Project 1"></div> 
-
-
-
-
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.42.16_b3e44e5a.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.42.44_f28cc1ea.jpg" alt="Project 1"></div>
-            <div class="gallery-item"><img src="images/project/WhatsApp Image 2025-09-08 at 12.42.58_289e1983.jpg" alt="Project 1"></div>
-
-        </div>
-
-        <footer>
-            <div class="footer-content">
-                <p>&copy; 2025 Manulea Construction Ltd. All rights reserved.</p>
-                <p><a href="mailto:manuleacon@gmail.com">📧 manuleacon@gmail.com</a></p>
-                <p>📍 104 Glen Road, The Glen, Dunedin 9011</p>
-                <p class="whakatauki">"Mā te huruhuru ka rere te manu" — Adorn the bird with feathers so it may fly.</p>
+            <div class="gallery-item">
+                <img src="498670333_122202420908109333_5389083797932734405_n.jpg" alt="Project 1">
             </div>
-        </footer>
+            <div class="gallery-item">
+                <img src="498948655_122202421148109333_6471619162871189681_n.jpg" alt="Project 1">
+            </div>
+        </div>
     </div>
-
-    <script>
-        const canvas = document.getElementById('starfield');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        const stars = [];
-        const numStars = 150;
-
-        for (let i = 0; i < numStars; i++) {
-            stars.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                radius: Math.random() * 1.5 + 0.5,
-                alpha: Math.random(),
-                speed: Math.random() * 0.02 + 0.01
-            });
-        }
-
-        function drawStars() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            for (let star of stars) {
-                star.alpha += star.speed;
-                if (star.alpha > 1 || star.alpha < 0) star.speed *= -1;
-
-                ctx.beginPath();
-                ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
-                ctx.fill();
-            }
-            requestAnimationFrame(drawStars);
-        }
-
-        drawStars();
-    </script>
-
 </body>
 </html>
