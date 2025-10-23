@@ -14,23 +14,76 @@
         <a href="reviews.html">Reviews</a>
     </nav>
 
-    <div class="content">
-        <h1>Reviews</h1>
+    
+    <form id="reviewForm">
+        <label for="name">Name:</label><br>
+        <input type="text" name="name" required><br>
 
-        <h3>Marianne Velthuis</h3>
-        <p>My neighbours, Linda and John Cook, and I employed Sione Laiva’a Manulea to make repairs to our mutual fence.
+        <label for="email">Email:</label><br>
+        <input type="email" name="email" required><br>
 
- 
+        <label for="review">Review:</label><br>
+        <textarea name="review" required></textarea><br>
 
-When the fence was originally installed the fence post were not aligned in a straight line causing the paling supports to pull away from the posts.
+        <button type="submit">Submit Review</button>
+    </form>
 
- 
-
-The repairs made by Mr Manulea corrected the issue and left us with a very solid fence that is no longer in danger of being blown over.  Mr Manulea conducted himself in a very professional manner and his charges were very reasonable.
-
- 
-
-I would have no hesitation in providing a reference for him and the work he does.</p>
+    <div class="reviews-section">
+        <h2>Customer Reviews</h2>
+        <div id="reviewsContainer"></div>
     </div>
+
+
+    <script>
+        const form = document.getElementById('reviewForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const url = 'https://script.google.com/macros/s/AKfycbyVTYK1Zknp0RlKKU0kBQ2H8Ngq2xhrt5qwDoGRyo3PHnKoPCBT3CLrfBRI-Oa9EYkjiw/exec'; // Replace with your actual Apps Script URL
+
+            fetch(url, {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                form.reset();
+                loadReviews(); // ✅ Refresh reviews immediately after submission
+            })
+            .catch(error => {
+                alert('Error submitting review');
+                console.error(error);
+            });
+        });
+    </script>
+
+    <script>
+        function loadReviews() {
+            const sheetUrl = 'https://opensheet.elk.sh/1UeMsAbpyxrhSl8CTBZCYZnGTmLtJbP2fYSexiF-RJXY/sheet1';
+            fetch(sheetUrl)
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('reviewsContainer');
+                    container.innerHTML = '';
+
+                    data.forEach(entry => {
+                        const div = document.createElement('div');
+                        div.className = 'review';
+                        div.innerHTML = `<h3>${entry.Name}</h3><p>${entry.Review}</p>`;
+                        container.appendChild(div);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading reviews:', error);
+                });
+        }
+
+        window.onload = loadReviews;
+        setInterval(loadReviews, 10000); // Refresh every 10 seconds
+    </script>
+
+
 </body>
 </html>
